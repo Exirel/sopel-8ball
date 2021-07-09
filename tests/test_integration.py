@@ -2,11 +2,13 @@
 from __future__ import generator_stop
 
 import re
+from unittest import mock
 
 import pytest
 from sopel.tests import rawlist
 
 from sopel_8ball import choices, managers
+from sopel_8ball.plugin import configure
 
 
 TMP_CONFIG = """
@@ -83,3 +85,14 @@ def test_8ball_pm_no_query(irc, userfactory):
     assert irc.bot.backend.message_sent == rawlist(
         'PRIVMSG Exirel :What is your query?',
     )
+
+
+def test_configure(tmpconfig):
+    with mock.patch('sopel.config.types.get_input') as mock_input:
+        mock_input.side_effect = ["classic"]
+        configure(tmpconfig)
+
+    assert 'magic8ball' in tmpconfig
+    assert hasattr(tmpconfig.magic8ball, 'choices')
+
+    assert tmpconfig.magic8ball.choices == 'classic'

@@ -5,6 +5,7 @@ from typing import Optional, Tuple
 
 import pkg_resources  # type: ignore
 from sopel.bot import Sopel  # type: ignore
+from sopel.config import Config  # type: ignore
 
 from .choices import AbstractChoiceProvider
 
@@ -66,6 +67,11 @@ class Manager:
         """Set up the manager"""
         self._provider = self.load_provider('classic')
         self._provider.setup(bot)
+
+    def configure(self, settings: Config) -> None:
+        """Configure the magic 8 ball choices provider."""
+        provider = self.load_provider(settings.magic8ball.choices)
+        provider.configure(settings)
 
 
 manager = Manager()

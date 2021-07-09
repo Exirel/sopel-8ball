@@ -3,9 +3,10 @@ from __future__ import generator_stop
 
 import abc
 import random
-from typing import NoReturn, Tuple
+from typing import Tuple
 
 from sopel.bot import Sopel  # type: ignore
+from sopel.config import Config  # type: ignore
 from sopel.tools.target import Identifier  # type: ignore
 
 
@@ -21,8 +22,14 @@ class AbstractChoiceProvider(abc.ABC):
         'This is my choice!'
 
     """
-    def setup(self, bot: Sopel) -> NoReturn:
-        """Set up the choice provider for this instance of Sopel.
+    def setup(self, bot: Sopel) -> None:
+        """Set up the choices provider for this instance of Sopel.
+
+        No-op by default.
+        """
+
+    def configure(self, settings: Config) -> None:
+        """Configure the choices provider for this configuration.
 
         No-op by default.
         """
