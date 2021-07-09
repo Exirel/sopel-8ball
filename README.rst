@@ -2,7 +2,7 @@
 sopel-8ball
 ===========
 
-Sopel magic 8 ball plugin:
+Sopel magic 8 ball plugin::
 
     <User> .8ball Do you know the future?
     <Sopel> User: You may rely on it.
