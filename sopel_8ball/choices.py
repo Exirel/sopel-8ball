@@ -85,3 +85,36 @@ class Classic(AbstractChoiceProvider):
             "Outlook not so good.",
             "Very doubtful.",
         )
+
+
+class Snarky(AbstractChoiceProvider):
+    """A snarky magic 8 ball."""
+    def choices(self):
+        return (
+            # affirmative answers
+            "What’s the opposite of no?",
+            "Is the sun hot?",
+            "Heck yes!",
+            "Of course, duh!",
+            "Yeah sure",
+
+            # non-committal answers
+            "No comment",
+            "Cool query",
+            "I wasn’t born for this.",
+            "Sorry, I wasn't listening",
+            "Please cancel my subscription to your issues.",
+
+            # negative answers
+            "What’s the opposite of yes?",
+            "Is the sun cold?",
+            "Hell to the no!",
+            "You're joking, right?",
+            "Ewwww...no!",
+
+            "My answer is a resounding no!",
+            "Frankly, my dear—no!",
+            "No no no no no no no no no no no!",
+            "Would you take ‘no’ for an answer?",
+            "Not in this lifetime!",
+        )

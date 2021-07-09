@@ -1,11 +1,14 @@
 """Test ``sopel_8ball.managers``."""
 import pytest
 
-from sopel_8ball import choices, managers
+from sopel_8ball import choices, config, managers
 
 
 def test_manager_provider_names():
-    assert managers.manager.provider_names == ('classic',)
+    assert managers.manager.provider_names == (
+        'classic',
+        'snarky',
+    )
 
 
 def test_manager_load_provider():
@@ -19,3 +22,49 @@ def test_manager_load_provider():
 
     with pytest.raises(RuntimeError):
         managers.manager.load_provider('mockinvalid')
+
+
+TMP_CONFIG = """
+[core]
+owner = testnick
+nick = TestBot
+enable = coretasks, 8ball
+"""
+
+
+def test_manager_setup_default(configfactory, botfactory):
+    manager = managers.Manager()
+
+    with pytest.raises(RuntimeError):
+        # since the plugin is not set up, the manager's provider isn't set
+        manager.provider
+
+    tmpconfig = configfactory('test.cfg', TMP_CONFIG)
+    mockbot = botfactory(tmpconfig)
+
+    tmpconfig.define_section('magic8ball', config.Magic8ballSection)
+    manager.setup(mockbot)
+
+    assert isinstance(manager.provider, choices.Classic)
+
+
+TMP_CONFIG_SNARKY = """
+[core]
+owner = testnick
+nick = TestBot
+enable = coretasks, 8ball
+
+[magic8ball]
+choices = snarky
+"""
+
+
+def test_manager_setup_snarky(configfactory, botfactory):
+    manager = managers.Manager()
+    tmpconfig = configfactory('test.cfg', TMP_CONFIG_SNARKY)
+    mockbot = botfactory(tmpconfig)
+
+    tmpconfig.define_section('magic8ball', config.Magic8ballSection)
+    manager.setup(mockbot)
+
+    assert isinstance(manager.provider, choices.Snarky)

@@ -65,7 +65,7 @@ class Manager:
 
     def setup(self, bot: Sopel) -> None:
         """Set up the manager"""
-        self._provider = self.load_provider('classic')
+        self._provider = self.load_provider(bot.settings.magic8ball.choices)
         self._provider.setup(bot)
 
     def configure(self, settings: Config) -> None:

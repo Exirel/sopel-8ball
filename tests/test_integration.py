@@ -37,10 +37,6 @@ def irc(mockbot, ircfactory):
 
 
 def test_8ball_default_provider(tmpconfig, botfactory):
-    with pytest.raises(RuntimeError):
-        # since the plugin is not set up, the manager's provider isn't set
-        managers.manager.provider
-
     botfactory.preloaded(tmpconfig, preloads=['8ball'])
     assert isinstance(managers.manager.provider, choices.Classic)
 
