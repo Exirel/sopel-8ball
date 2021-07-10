@@ -35,7 +35,7 @@ class AbstractChoiceProvider(abc.ABC):
         """
 
     @abc.abstractmethod
-    def choices(self) -> Tuple[str]:
+    def choices(self) -> Tuple[str, ...]:
         """Retrieve available choices from this magic 8 ball.
 
         :return: all possible choices for this 8 ball
@@ -56,7 +56,7 @@ class AbstractChoiceProvider(abc.ABC):
 
 class Classic(AbstractChoiceProvider):
     """The classic magic 8 ball."""
-    def choices(self):
+    def choices(self) -> Tuple[str, ...]:
         return (
             # affirmative answers
             "It is Certain.",
@@ -89,7 +89,7 @@ class Classic(AbstractChoiceProvider):
 
 class Snarky(AbstractChoiceProvider):
     """A snarky magic 8 ball."""
-    def choices(self):
+    def choices(self) -> Tuple[str, ...]:
         return (
             # affirmative answers
             "What’s the opposite of no?",
@@ -117,4 +117,38 @@ class Snarky(AbstractChoiceProvider):
             "No no no no no no no no no no no!",
             "Would you take ‘no’ for an answer?",
             "Not in this lifetime!",
+        )
+
+
+class Spooky(AbstractChoiceProvider):
+    """A spooky magic 8 ball."""
+    def choices(self) -> Tuple[str, ...]:
+        return (
+            # affirmative answers
+            "The ghost over your shoulder said yes.",
+            "The accursed screams in agreement.",
+            "The elders smile from the deep.",
+            "I've seen this in the dreams of a Great Old One.",
+            "For once eerie voices whisper in harmony.",
+
+            # non-committal answers
+            "The abyss remains silent.",
+            "I hear the whispers of a thousand voices "
+            "but none have your answer.",
+            "The unfathomable truth cannot be revealed.",
+            "In the darkness this won't matter anymore.",
+            "From the depth comes no answer.",
+
+            "The spirits are bored of this tune.",
+            "The answer lies beyond the stars, ineffable.",
+            "Answers are lost in the midst of black seas of infinity.",
+            "You shall go mad from the revelation of the truth.",
+            "I hear your call, yet their shrieking keeps me silent.",
+
+            # negative answers
+            "This would anger the old gods.",
+            "This will bring sorrow and tears.",
+            "The elders scowl from the deep.",
+            "Hidden and fathomless minds pulsate in rage.",
+            "The underworld grumbles with repudiation.",
         )
