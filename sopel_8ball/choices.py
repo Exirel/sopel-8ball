@@ -132,7 +132,7 @@ class Spooky(AbstractChoiceProvider):
             "For once eerie voices whisper in harmony.",
 
             # non-committal answers
-            "The abyss remain silent.",
+            "The abyss remains silent.",
             "I hear the whispers of a thousand voices "
             "but none have your answer.",
             "The unfathomable truth cannot be revealed.",
@@ -140,15 +140,15 @@ class Spooky(AbstractChoiceProvider):
             "From the depth comes no answer.",
 
             "The spirits are bored of this tune.",
-            "The answer lies behond the stars, ineffable.",
+            "The answer lies beyond the stars, ineffable.",
             "Answers are lost in the midst of black seas of infinity.",
             "You shall go mad from the revelation of the truth.",
-            "I hear your call yet their shriek keeps me silent.",
+            "I hear your call, yet their shrieking keeps me silent.",
 
             # negative answers
-            "This would angry the old gods.",
+            "This would anger the old gods.",
             "This will bring sorrow and tears.",
             "The elders scowl from the deep.",
-            "Hidden and fathomless minds pulsated in rage.",
-            "The underworld grumbles with dissension.",
+            "Hidden and fathomless minds pulsate in rage.",
+            "The underworld grumbles with repudiation.",
         )
