@@ -27,7 +27,7 @@ def configure(settings: Config) -> None:
     managers.manager.configure(settings)
 
 
-@plugin.commands('8ball', '8')
+@plugin.commands('8ball', '8b')
 @plugin.example('.8ball Do androids dream of electric sheep?', user_help=True)
 def query(bot: SopelWrapper, trigger: Trigger) -> None:
     """Query the magic 8 ball for an answer."""
