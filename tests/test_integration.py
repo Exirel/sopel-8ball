@@ -41,6 +41,12 @@ def test_8ball_default_provider(tmpconfig, botfactory):
     assert isinstance(managers.manager.provider, choices.Classic)
 
 
+def test_8ball_commands(mockbot):
+    assert mockbot.rules.has_command('8ball', follow_alias=False)
+    assert not mockbot.rules.has_command('8b', follow_alias=False)
+    assert mockbot.rules.has_command('8b', follow_alias=True)
+
+
 def test_8ball_channel(irc, userfactory):
     user = userfactory('Exirel')
     irc.say(user, '#channel', '.8ball this is my query')
