@@ -7,7 +7,7 @@ from typing import Tuple
 
 from sopel.bot import Sopel  # type: ignore
 from sopel.config import Config  # type: ignore
-from sopel.tools.target import Identifier  # type: ignore
+from sopel.tools import Identifier  # type: ignore
 
 
 class AbstractChoiceProvider(abc.ABC):
