@@ -96,13 +96,13 @@ class Snarky(AbstractChoiceProvider):
             "Is the sun hot?",
             "Heck yes!",
             "Of course, duh!",
-            "Yeah sure",
+            "Yeah, sure.",
 
             # non-committal answers
-            "No comment",
-            "Cool query",
+            "No comment.",
+            "Cool query.",
             "I wasn’t born for this.",
-            "Sorry, I wasn't listening",
+            "Sorry, I wasn't listening.",
             "Please cancel my subscription to your issues.",
 
             # negative answers
@@ -115,7 +115,7 @@ class Snarky(AbstractChoiceProvider):
             "My answer is a resounding no!",
             "Frankly, my dear—no!",
             "No no no no no no no no no no no!",
-            "Would you take ‘no’ for an answer?",
+            "Would you take \"no\" for an answer?",
             "Not in this lifetime!",
         )
 
@@ -129,11 +129,11 @@ class Spooky(AbstractChoiceProvider):
             "The accursed screams in agreement.",
             "The elders smile from the deep.",
             "I've seen this in the dreams of a Great Old One.",
-            "For once eerie voices whisper in harmony.",
+            "For once, eerie voices whisper in harmony.",
 
             # non-committal answers
             "The abyss remains silent.",
-            "I hear the whispers of a thousand voices "
+            "I hear the whispers of a thousand voices, "
             "but none have your answer.",
             "The unfathomable truth cannot be revealed.",
             "In the darkness this won't matter anymore.",
