@@ -59,7 +59,7 @@ class Classic(AbstractChoiceProvider):
     def choices(self) -> Tuple[str, ...]:
         return (
             # affirmative answers
-            "It is Certain.",
+            "It is certain.",
             "It is decidedly so.",
             "Without a doubt.",
             "Yes definitely.",
@@ -134,10 +134,10 @@ class Spooky(AbstractChoiceProvider):
             # non-committal answers
             "The abyss remains silent.",
             "I hear the whispers of a thousand voices, "
-            "but none have your answer.",
+            "but none has your answer.",
             "The unfathomable truth cannot be revealed.",
             "In the darkness this won't matter anymore.",
-            "From the depth comes no answer.",
+            "From the depths comes no reply.",
 
             "The spirits are bored of this tune.",
             "The answer lies beyond the stars, ineffable.",
