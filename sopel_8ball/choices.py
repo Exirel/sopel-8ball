@@ -92,7 +92,7 @@ class Snarky(AbstractChoiceProvider):
     def choices(self) -> Tuple[str, ...]:
         return (
             # affirmative answers
-            "What’s the opposite of no?",
+            "What's the opposite of no?",
             "Is the sun hot?",
             "Heck yes!",
             "Of course, duh!",
@@ -101,12 +101,12 @@ class Snarky(AbstractChoiceProvider):
             # non-committal answers
             "No comment.",
             "Cool query.",
-            "I wasn’t born for this.",
+            "I wasn't born for this.",
             "Sorry, I wasn't listening.",
             "Please cancel my subscription to your issues.",
 
             # negative answers
-            "What’s the opposite of yes?",
+            "What's the opposite of yes?",
             "Is the sun cold?",
             "Hell to the no!",
             "You're joking, right?",
