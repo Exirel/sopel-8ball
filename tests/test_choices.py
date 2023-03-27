@@ -1,7 +1,8 @@
 """Test ``sopel_8ball.choices``."""
 from __future__ import generator_stop
 
-from sopel_8ball.choices import AbstractChoiceProvider, Classic, Snarky, Spooky
+from sopel_8ball.choices import (
+    AbstractChoiceProvider, Classic, Snarky, Spooky, Weeaball)
 
 
 def test_abstract_provider():
@@ -34,4 +35,12 @@ def test_spooky():
     choices = provider.choices()
 
     assert len(choices) == 20
+    assert provider.query(None, None) in choices
+
+
+def test_weeaball():
+    provider = Weeaball()
+    choices = provider.choices()
+
+    assert len(choices) == 22
     assert provider.query(None, None) in choices
