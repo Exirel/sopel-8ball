@@ -1,13 +1,14 @@
 """Choices module for the magic 8 ball."""
-from __future__ import generator_stop
+from __future__ import annotations
 
 import abc
 import random
-from typing import Tuple
+from typing import TYPE_CHECKING, Tuple
 
-from sopel.bot import Sopel  # type: ignore
-from sopel.config import Config  # type: ignore
-from sopel.tools import Identifier  # type: ignore
+if TYPE_CHECKING:
+    from sopel.bot import Sopel  # type: ignore
+    from sopel.config import Config  # type: ignore
+    from sopel.tools import Identifier  # type: ignore
 
 
 class AbstractChoiceProvider(abc.ABC):
@@ -44,11 +45,15 @@ class AbstractChoiceProvider(abc.ABC):
         and any user.
         """
 
-    def query(self, destination: Identifier, user: Identifier) -> str:
+    def query(
+            self,
+            destination: Identifier,  # pylint: disable=unused-argument
+            user: Identifier,  # pylint: disable=unused-argument
+    ) -> str:
         """Query the 8 ball for one of its choice.
 
-        :param bot: sopel instance used to query the magic 8 ball
-        :param trigger: trigger that triggered the query
+        :param destination: where the choice will be published
+        :param user: the user's nick who requested the choice
         :return: the 8 ball's answer to that query
         """
         return random.choice(self.choices())
