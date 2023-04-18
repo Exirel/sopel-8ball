@@ -59,7 +59,7 @@ class Classic(AbstractChoiceProvider):
     def choices(self) -> Tuple[str, ...]:
         return (
             # affirmative answers
-            "It is Certain.",
+            "It is certain.",
             "It is decidedly so.",
             "Without a doubt.",
             "Yes definitely.",
@@ -92,7 +92,7 @@ class Snarky(AbstractChoiceProvider):
     def choices(self) -> Tuple[str, ...]:
         return (
             # affirmative answers
-            "What’s the opposite of no?",
+            "What's the opposite of no?",
             "Is the sun hot?",
             "Heck yes!",
             "Of course, duh!",
@@ -101,12 +101,12 @@ class Snarky(AbstractChoiceProvider):
             # non-committal answers
             "No comment.",
             "Cool query.",
-            "I wasn’t born for this.",
+            "I wasn't born for this.",
             "Sorry, I wasn't listening.",
             "Please cancel my subscription to your issues.",
 
             # negative answers
-            "What’s the opposite of yes?",
+            "What's the opposite of yes?",
             "Is the sun cold?",
             "Hell to the no!",
             "You're joking, right?",
@@ -134,10 +134,10 @@ class Spooky(AbstractChoiceProvider):
             # non-committal answers
             "The abyss remains silent.",
             "I hear the whispers of a thousand voices, "
-            "but none have your answer.",
+            "but none has your answer.",
             "The unfathomable truth cannot be revealed.",
             "In the darkness this won't matter anymore.",
-            "From the depth comes no answer.",
+            "From the depths comes no reply.",
 
             "The spirits are bored of this tune.",
             "The answer lies beyond the stars, ineffable.",
