@@ -152,3 +152,38 @@ class Spooky(AbstractChoiceProvider):
             "Hidden and fathomless minds pulsate in rage.",
             "The underworld grumbles with repudiation.",
         )
+
+
+class Weeaball(AbstractChoiceProvider):
+    """A weeaboo magic 8 ball."""
+    def choices(self) -> Tuple[str, ...]:
+        return (
+            # affirmative answers
+            "Atarimae. (＾▽＾)",
+            "Daijoubu~ ٩(◕‿◕｡)۶",
+            "Hai! (⌒‿⌒)",
+            "Ii kangae! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧",
+            "Mochiron. (*￣▽￣)b",
+            "Sou desu. (٥⁀▽⁀ )b",
+            "Zettai! ＼(＾▽＾)／",
+
+            # non-committal answers
+            "Betsu ni. ╮(︶︿︶)╭",
+            "Isogashii… (－ω－) zzZ",
+            "Ittai dou iu imi desu ka?! ლ(ಠ_ಠ ლ)",
+            "Katte ni shiro! (ノ°益°)ノ",
+            "Mendokusai. (＃￣0￣)",
+            "Omae kankei nai. (ಠ_ಠ)",
+            "Osoraku. ┐(°ヮ°)┌",
+            "Tsumaranai. ┐( ˘ ､ ˘ )┌",
+            "Urusai! (╬`益´)",
+
+            # negative answers
+            "Arienai. (|||❛︵❛。)"
+            "Chigau. (◞ ‸ ◟ㆀ)",
+            "Dame! o(╥﹏╥)",
+            "Iie. (ᗒᗩᗕ)",
+            "Masaka! (╯︵╰)",
+            "Muri. ▄█▀█●",
+            "Zannen. _|￣|○",
+        )

@@ -8,7 +8,8 @@ def test_manager_provider_names():
     assert managers.manager.provider_names == (
         'classic',
         'snarky',
-        "spooky",
+        'spooky',
+        'weeaball',
     )
 
 
@@ -91,3 +92,25 @@ def test_manager_setup_spooky(configfactory, botfactory):
     manager.setup(mockbot)
 
     assert isinstance(manager.provider, choices.Spooky)
+
+
+TMP_CONFIG_WEEABALL = """
+[core]
+owner = testnick
+nick = TestBot
+enable = coretasks, 8ball
+
+[magic8ball]
+choices = weeaball
+"""
+
+
+def test_manager_setup_weeaball(configfactory, botfactory):
+    manager = managers.Manager()
+    tmpconfig = configfactory('test.cfg', TMP_CONFIG_WEEABALL)
+    mockbot = botfactory(tmpconfig)
+
+    tmpconfig.define_section('magic8ball', config.Magic8ballSection)
+    manager.setup(mockbot)
+
+    assert isinstance(manager.provider, choices.Weeaball)
