@@ -42,5 +42,5 @@ def test_weeaball():
     provider = Weeaball()
     choices = provider.choices()
 
-    assert len(choices) == 22
+    assert len(choices) == 23
     assert provider.query(None, None) in choices
