@@ -184,7 +184,7 @@ class Weeaball(AbstractChoiceProvider):
             "Urusai! (╬`益´)",
 
             # negative answers
-            "Arienai. (|||❛︵❛。)"
+            "Arienai. (|||❛︵❛。)",
             "Chigau. (◞ ‸ ◟ㆀ)",
             "Dame! o(╥﹏╥)",
             "Iie. (ᗒᗩᗕ)",
