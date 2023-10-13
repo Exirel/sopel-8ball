@@ -44,7 +44,9 @@ def test_8ball_default_provider(tmpconfig, botfactory):
 def test_8ball_commands(mockbot):
     assert mockbot.rules.has_command('8ball', follow_alias=False)
     assert not mockbot.rules.has_command('8b', follow_alias=False)
+    assert not mockbot.rules.has_command('8', follow_alias=False)
     assert mockbot.rules.has_command('8b', follow_alias=True)
+    assert mockbot.rules.has_command('8', follow_alias=True)
 
 
 def test_8ball_channel(irc, userfactory):
