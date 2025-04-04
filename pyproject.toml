@@ -16,7 +16,7 @@ description = "Magic 8 ball plugin for Sopel"
 keywords = [
   "sopel",
   "plugin",
-  "height-ball",
+  "eight-ball",
   "bot",
   "irc",
 ]
@@ -29,13 +29,12 @@ authors = [
 ]
 
 readme = "README.rst"
-license = { text="EFL-2.0" }
+license = "EFL-2.0"
+license-files = ["LICENSE.txt"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Intended Audience :: System Administrators",
-    "License :: Eiffel Forum License (EFL)",
-    "License :: OSI Approved :: Eiffel Forum License",
     "Operating System :: POSIX :: Linux",
     "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",
