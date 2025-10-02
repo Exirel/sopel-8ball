@@ -1,0 +1,49 @@
+---
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    name: Test suite
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version:
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+          - "3.12"
+          - "3.13"
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Upgrade pip & wheel
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade wheel
+      - name: Install project (Python 3.8)
+        if: matrix.python-version == '3.8'
+        run: |
+          python -m pip install --upgrade dependency-groups
+          pip-install-dependency-groups dev
+          python -m pip install -e .
+      - name: Install project (Python 3.9+)
+        if: matrix.python-version != '3.8'
+        run: |
+          python -m pip install --upgrade --group dev
+          python -m pip install -e .
+      - name: Check code style
+        run: make quality
+      - name: Run pytest
+        run: make test

@@ -1,6 +1,6 @@
 """Sopel Magic 8 ball plugin."""
-from __future__ import generator_stop
+from __future__ import annotations
 
-import pkg_resources  # type: ignore
+import importlib.metadata
 
-__version__ = pkg_resources.get_distribution('sopel-8ball').version
+__version__ = importlib.metadata.version('sopel')

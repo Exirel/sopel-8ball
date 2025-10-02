@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools~=63.0", "wheel"]
+requires = ["setuptools~=66.1", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
@@ -11,7 +11,7 @@ namespaces = false
 
 [project]
 name = "sopel-8ball"
-version = "0.5.0"
+version = "0.6.0"
 description = "Magic 8 ball plugin for Sopel"
 keywords = [
   "sopel",
@@ -37,16 +37,18 @@ classifiers = [
     "License :: Eiffel Forum License (EFL)",
     "License :: OSI Approved :: Eiffel Forum License",
     "Operating System :: POSIX :: Linux",
-    "Programming Language :: Python :: 3.6",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Communications :: Chat :: Internet Relay Chat",
 ]
-requires-python = ">=3.6, <4"
+requires-python = ">=3.8, <4"
 dependencies = [
-    "sopel>=7.1",
+    "sopel>=8.0",
+    "importlib_metadata>=3.8",
 ]
 
 [project.urls]
@@ -61,3 +63,38 @@ classic = "sopel_8ball.choices:Classic"
 snarky = "sopel_8ball.choices:Snarky"
 spooky = "sopel_8ball.choices:Spooky"
 weeaball = "sopel_8ball.choices:Weeaball"
+
+[dependency-groups]
+dev = [ # These are requirements to develop the plugin itself.
+    {include-group = "lint"},
+    {include-group = "test"},
+]
+lint = [
+    "flake8",
+    "flake8-pyproject",
+    "pylint",
+    "coverage",
+    "coverage[toml]",
+    "pyroma",
+    "mypy",
+    "types-pytz",
+]
+test = [
+    "pytest",
+]
+
+[tool.flake8]
+max-line-length = 79
+
+[tool.isort]
+line_length = 79
+known_third_party = ["sopel"]
+known_first_party = ["sopel_8ball"]
+
+[tool.pytest.ini_options]
+python_files = "*.py"
+addopts = "--tb=short -p no:nose"
+
+[tool.coverage.run]
+branch = true
+source = ["sopel_8ball"]

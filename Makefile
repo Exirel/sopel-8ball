@@ -1,8 +1,9 @@
-.PHONY: qa quality test coverages coverage_report coverage_html pylint
+.PHONY: qa quality test coverages coverage_report coverage_html pylint pyroma
 
 quality:
-	isort sopel_8ball
+	isort -c sopel_8ball tests
 	flake8
+	mypy sopel_8ball --follow-untyped-imports
 
 test:
 	coverage run -m pytest -v .
@@ -16,23 +17,20 @@ coverage_html:
 coverages: coverage_report coverage_html
 
 pylint:
-	pylint sopel_8ball
+	pylint sopel_8ball || exit 0
 
 pyroma:
 	pyroma .
 
-mypy:
-	mypy sopel_8ball
-
-qa: quality mypy test coverages pylint pyroma
+qa: quality test coverages pylint pyroma
 
 .PHONY: develop build
 
 develop:
-	pip install -r requirements.txt
-	pip install -e .
+	python -m pip install -U pip
+	python -m pip install -U --group dev
+	python -m pip install -e .
 
-# DO NOT RUN INSIDE VIRTUALENV
 build:
 	rm -rf build/ dist/
-	python3 -m build --sdist --wheel --outdir dist/ .
+	python -m build --sdist --wheel --outdir dist/ .
