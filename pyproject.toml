@@ -62,6 +62,7 @@ dependencies = [
 classic = "sopel_8ball.choices:Classic"
 snarky = "sopel_8ball.choices:Snarky"
 spooky = "sopel_8ball.choices:Spooky"
+thefrench = "sopel_8ball.choices:TheFrench"
 weeaball = "sopel_8ball.choices:Weeaball"
 
 [dependency-groups]

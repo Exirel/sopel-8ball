@@ -159,6 +159,30 @@ class Spooky(AbstractChoiceProvider):
         )
 
 
+class TheFrench(AbstractChoiceProvider):
+    """The French magic 8 ball. Magic, but French."""
+    def choices(self) -> Tuple[str, ...]:
+        return (
+            # affirmative answers
+            "Oui.",
+            "Putain oui !",
+            "Oh putain !",
+            "Bon d'accord...",
+
+            # non-committal answers
+            "Peut-être.",
+            "Putain ?",
+            "Je sais pas putain.",
+            "C'est pas moi qui le dit.",
+
+            # negative answers
+            "Non.",
+            "Putain non !",
+            "Mais putain...",
+            "Jamais de la vie.",
+        )
+
+
 class Weeaball(AbstractChoiceProvider):
     """A weeaboo magic 8 ball."""
     def choices(self) -> Tuple[str, ...]:
