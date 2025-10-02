@@ -1,15 +1,14 @@
 """Integration test for the 8ball plugin."""
-from __future__ import generator_stop
+from __future__ import annotations
 
+import io
 import re
-from unittest import mock
 
 import pytest
 from sopel.tests import rawlist
 
 from sopel_8ball import choices, managers
 from sopel_8ball.plugin import configure
-
 
 TMP_CONFIG = """
 [core]
@@ -91,10 +90,11 @@ def test_8ball_pm_no_query(irc, userfactory):
     )
 
 
-def test_configure(tmpconfig):
-    with mock.patch('sopel.config.types.get_input') as mock_input:
-        mock_input.side_effect = ["classic"]
-        configure(tmpconfig)
+def test_configure(tmpconfig, monkeypatch):
+    user_inputs = io.StringIO('classic\nn\n')
+    monkeypatch.setattr('sys.stdin', user_inputs)
+
+    configure(tmpconfig)
 
     assert 'magic8ball' in tmpconfig
     assert hasattr(tmpconfig.magic8ball, 'choices')

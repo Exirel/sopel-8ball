@@ -1,5 +1,5 @@
 """Magic 8 ball plugin"""
-from __future__ import generator_stop
+from __future__ import annotations
 
 from sopel import plugin  # type: ignore
 from sopel.bot import Sopel, SopelWrapper  # type: ignore

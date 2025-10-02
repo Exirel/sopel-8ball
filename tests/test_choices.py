@@ -1,8 +1,8 @@
 """Test ``sopel_8ball.choices``."""
-from __future__ import generator_stop
+from __future__ import annotations
 
-from sopel_8ball.choices import (
-    AbstractChoiceProvider, Classic, Snarky, Spooky, Weeaball)
+from sopel_8ball.choices import (AbstractChoiceProvider, Classic, Snarky,
+                                 Spooky, Weeaball)
 
 
 def test_abstract_provider():

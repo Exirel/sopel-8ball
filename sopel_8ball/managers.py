@@ -1,9 +1,13 @@
 """Manager for magic 8 Ball"""
-from __future__ import generator_stop
+from __future__ import annotations
 
 from typing import Optional, Tuple
 
-import pkg_resources  # type: ignore
+# TODO: use stdlib importlib.metadata when possible, after dropping py3.9.
+# Stdlib does not support `entry_points(group='filter')` until py3.10, but
+# fallback logic is more trouble than it's worth when e.g. clean Ubuntu
+# py3.10 envs include old versions of this backport.
+import importlib_metadata
 from sopel.bot import Sopel  # type: ignore
 from sopel.config import Config  # type: ignore
 
@@ -29,8 +33,9 @@ class Manager:
     def provider_names(self) -> Tuple[str, ...]:
         """Names of the available providers."""
         if self._provider_list is None:
-            entry_points = pkg_resources.iter_entry_points(
-                PROVIDERS_ENTRY_POINT)
+            entry_points = importlib_metadata.entry_points(
+                group=PROVIDERS_ENTRY_POINT,
+            )
             self._provider_list = tuple(
                 entry_point.name
                 for entry_point in entry_points
@@ -40,15 +45,15 @@ class Manager:
     def load_provider(self, name: str) -> AbstractChoiceProvider:
         """Load provider from a name.
 
-        :param str name: name of the provider
+        :param name: name of the provider
         :return: a provider instance
-        :rtype: :class:`sopel_help.providers.AbstractProvider`
 
         The provider will be loaded from an entry point and then instanciated
         to be returned as is (no setup, no configure).
         """
-        entry_points = pkg_resources.iter_entry_points(
-            PROVIDERS_ENTRY_POINT, name)
+        entry_points = (e for e in importlib_metadata.entry_points(
+            group=PROVIDERS_ENTRY_POINT, name=name,
+        ))
 
         try:
             entry_point = next(entry_points)

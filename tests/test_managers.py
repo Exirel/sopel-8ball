@@ -1,4 +1,6 @@
 """Test ``sopel_8ball.managers``."""
+from __future__ import annotations
+
 import pytest
 
 from sopel_8ball import choices, config, managers
