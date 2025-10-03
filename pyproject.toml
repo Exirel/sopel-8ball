@@ -64,6 +64,7 @@ snarky = "sopel_8ball.choices:Snarky"
 spooky = "sopel_8ball.choices:Spooky"
 thefrench = "sopel_8ball.choices:TheFrench"
 weeaball = "sopel_8ball.choices:Weeaball"
+yesno = "sopel_8ball.choices:YesNo"
 
 [dependency-groups]
 dev = [ # These are requirements to develop the plugin itself.

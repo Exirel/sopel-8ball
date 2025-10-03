@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from sopel_8ball.choices import (AbstractChoiceProvider, Classic, Snarky,
-                                 Spooky, TheFrench, Weeaball)
+                                 Spooky, TheFrench, Weeaball, YesNo)
 
 
 def test_abstract_provider():
@@ -51,4 +51,12 @@ def test_weeaball():
     choices = provider.choices()
 
     assert len(choices) == 23
+    assert provider.query(None, None) in choices
+
+
+def test_yesno():
+    provider = YesNo()
+    choices = provider.choices()
+
+    assert len(choices) == 2
     assert provider.query(None, None) in choices

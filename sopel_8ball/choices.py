@@ -216,3 +216,11 @@ class Weeaball(AbstractChoiceProvider):
             "Muri. ▄█▀█●",
             "Zannen. _|￣|○",
         )
+
+
+class YesNo(AbstractChoiceProvider):
+    def choices(self) -> Tuple[str, ...]:
+        return (
+            "Yes.",
+            "No.",
+        )

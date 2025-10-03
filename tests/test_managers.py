@@ -13,6 +13,7 @@ def test_manager_provider_names():
         'spooky',
         'thefrench',
         'weeaball',
+        'yesno',
     )
 
 
