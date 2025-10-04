@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools~=66.1", "wheel"]
+requires = ["setuptools~=77.0.3", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
@@ -36,7 +36,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: System Administrators",
     "Operating System :: POSIX :: Linux",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -44,10 +43,10 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Topic :: Communications :: Chat :: Internet Relay Chat",
 ]
-requires-python = ">=3.8, <4"
+requires-python = ">=3.9, <4"
 dependencies = [
     "sopel>=8.0",
-    "importlib_metadata>=3.8",
+    "importlib-metadata>=8.6",
 ]
 
 [project.urls]
