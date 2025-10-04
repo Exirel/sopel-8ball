@@ -37,8 +37,11 @@ There are more than one style of choices you can select:
 * ``classic``: the classic version (10 yes, 5 maybe, 5 no)
 * ``snarky``: this version is rude (5 yes, 5 maybe, 10 no)
 * ``spooky``: use at your own risk (5 yes, 10 maybe, 5 no, 100% freaky)
+* ``thefrench``: experience French profanity (5 yes, 5 maybe, 5 no,
+  100% French)
 * ``weeaball``: for japanese style fan ＼(＾▽＾)／ (7 yes, 9 maybe, 7 no,
   100% kaomoji)
+* ``yesno``: only "yes" or "no" (1 yes, 0 maybe, 1 no, 100% assertive)
 
 This can be configured with the Sopel configuration wizard::
 
